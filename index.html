@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Literary Versus</title>
+  <link rel="stylesheet" href="style.css">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,700;1,400&family=Roboto:wght@400;700&display=swap"
+    rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="app-container">
+
+    <header>
+      <h1>Literary <span class="accent">Versus</span></h1>
+      <p>Сравни стиль двух писателей с помощью AI</p>
+    </header>
+
+    <main class="arena">
+
+      <div class="fighter-card">
+        <label for="author-1">Первый автор</label>
+        <input type="text" id="author-1" placeholder="Напр. Стивен Кинг">
+      </div>
+
+      <div class="vs-badge">VS</div>
+
+      <div class="fighter-card">
+        <label for="author-2">Второй автор</label>
+        <input type="text" id="author-2" placeholder="Напр. Говард Лавкрафт">
+      </div>
+
+    </main>
+
+    <div class="controls">
+      <button id="fight-btn" class="btn-primary">Сравнить стили</button>
+    </div>
+
+    <section id="result-area" class="results hidden">
+      <h2>Анализ</h2>
+      <div class="result-content">
+        <p id="analysis-text">Здесь появится результат...</p>
+
+        <div class="stats-container hidden" id="stats-block">
+
+          <div class="stat-item">
+            <span class="stat-label">Мрачность</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="bar-gloom" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-label">Сложность слога</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="bar-complexity" style="width: 0%"></div>
+            </div>
+          </div>
+
+          <div class="stat-item">
+            <span class="stat-label">Сарказм</span>
+            <div class="progress-bar">
+              <div class="progress-fill" id="bar-sarcasm" style="width: 0%"></div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,176 @@
+/* Базовые настройки */
+:root {
+  --bg-color: #121212;
+  /* Очень темный фон */
+  --card-bg: #1e1e2f;
+  /* Фон карточек */
+  --text-primary: #e0e0e0;
+  /* Светлый текст */
+  --accent: #bb86fc;
+  /* Фиолетовый акцент */
+  --vs-color: #cf6679;
+  /* Красный для VS */
+  --font-serif: 'Merriweather', serif;
+  /* Шрифт для заголовков */
+  --font-sans: 'Roboto', sans-serif;
+  /* Шрифт для интерфейса */
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--bg-color);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.app-container {
+  width: 100%;
+  max-width: 800px;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Стили заголовка */
+header h1 {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+/* АРЕНА (Flexbox магия) */
+.arena {
+  display: flex;
+  align-items: center;
+  /* Выравнивание по центру по вертикали */
+  justify-content: space-between;
+  margin: 3rem 0;
+  gap: 1rem;
+}
+
+/* Карточка бойца */
+.fighter-card {
+  background-color: var(--card-bg);
+  padding: 2rem;
+  border-radius: 12px;
+  flex: 1;
+  /* Карточки занимают равное пространство */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s;
+}
+
+.fighter-card:hover {
+  transform: translateY(-5px);
+  /* Легкая анимация при наведении */
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid var(--accent);
+  color: white;
+  font-size: 1.2rem;
+  text-align: center;
+  outline: none;
+}
+
+/* Когда инпут в фокусе (курсор внутри) */
+input:focus {
+  outline: none;
+  /* Убираем стандартную рамку */
+  border-bottom: 2px solid white;
+  /* Меняем цвет нашей нижней линии, чтобы было видно активность */
+}
+
+/* VS Кружок */
+.vs-badge {
+  background-color: var(--vs-color);
+  color: #121212;
+  font-weight: bold;
+  padding: 1rem;
+  border-radius: 50%;
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  box-shadow: 0 0 15px var(--vs-color);
+}
+
+/* Кнопка */
+.btn-primary {
+  background-color: var(--accent);
+  color: #000;
+  border: none;
+  padding: 1rem 3rem;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #fff;
+}
+
+/* Адаптивность для мобилок */
+@media (max-width: 600px) {
+  .arena {
+    flex-direction: column;
+    /* На телефоне ставим в колонку */
+  }
+
+  .vs-badge {
+    margin: 1rem 0;
+  }
+}
+
+
+
+/* JS */
+.hidden {
+  display: none;
+}
+
+
+
+/* Progress-bars */
+.stat-item {
+  margin: 15px 0;
+  text-align: left;
+}
+
+.stat-label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 0.9rem;
+  color: #bbb;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #333;
+  /* Серый фон (пустота) */
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background-color: var(--accent);
+  /* Фиолетовый заполнитель */
+  width: 0%;
+  /* По умолчанию 0, JS это изменит */
+  transition: width 1s ease-in-out;
+  /* Плавная анимация роста! */
+}
