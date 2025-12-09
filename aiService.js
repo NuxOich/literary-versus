@@ -16,8 +16,8 @@ export const mockAiAnalysis = async (author1, author2) => {
     `;
 
   // Берём модель из `config.js`. Если не задана, используем текущую как запас.
-  const defaultModel = MODEL_NAME || "google/gemini-flash-1.5-8b";
-  const fallbackCandidates = [defaultModel, "gpt-4o-mini", "gpt-3.5-turbo"];
+  const defaultModel = MODEL_NAME || "mistralai/devstral-2512:free";
+  const fallbackCandidates = [defaultModel, "gpt-4o-mini", "google/gemini-flash-1.5-8b"];
 
   console.log(`Отправляем запрос к LLM (попытка с моделью: ${defaultModel})...`);
 
@@ -54,6 +54,8 @@ export const mockAiAnalysis = async (author1, author2) => {
 
         // успешный ответ
         const data = await response.json();
+        console.log(`✅ УСПЕХ! Ответ сгенерировала модель: ${model}`);
+        // --------------------------
         const content = data.choices?.[0]?.message?.content || data.choices?.[0]?.text || '';
         console.log("Ответ получен:", content);
         const cleanJson = content.replace(/```json|```/g, '').trim();
