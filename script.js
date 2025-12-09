@@ -1,3 +1,6 @@
+// Импортируем логику из соседнего файла
+import { mockAiAnalysis } from "./aiService.js";
+
 const authorInput1 = document.getElementById('author-1');
 const authorInput2 = document.getElementById('author-2');
 const fightBtn = document.getElementById('fight-btn');
@@ -10,19 +13,19 @@ const barGloom = document.getElementById('bar-gloom');
 const barComplexity = document.getElementById('bar-complexity');
 const barSarcasm = document.getElementById('bar-sarcasm');
 // Обновленный Mock API: теперь возвращает ОБЪЕКТ, а не строку
-const mockAiAnalysis = async (author1, author2) => {
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      // Имитируем, что AI подумал и вернул JSON
-      resolve({
-        text: `Сравнение ${author1} и ${author2} завершено. Первый выделяется глубоким психологизмом, второй — работой c подсознательными страхами.`,
-        gloomLevel: 85,      // Уровень мрачности (число для графика)
-        complexityLevel: 60,  // Уровень сложности (число для графика)
-        sarcasmLevel: 30 // Уровень сарказма (Я добавил)
-      });
-    }, 2000);
-  });
-};
+// const mockAiAnalysis = async (author1, author2) => {
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       // Имитируем, что AI подумал и вернул JSON
+//       resolve({
+//         text: `Сравнение ${author1} и ${author2} завершено. Первый выделяется глубоким психологизмом, второй — работой c подсознательными страхами.`,
+//         gloomLevel: 85,      // Уровень мрачности (число для графика)
+//         complexityLevel: 60,  // Уровень сложности (число для графика)
+//         sarcasmLevel: 30 // Уровень сарказма (Я добавил)
+//       });
+//     }, 2000);
+//   });
+// };
 
 const handleCompare = async () => {
   const name1 = authorInput1.value.trim();
