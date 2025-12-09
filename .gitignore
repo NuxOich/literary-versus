@@ -1,0 +1,7 @@
+# Системные файлы
+.DS_Store
+node_modules/
+
+# Секреты и конфиги
+config.js
+.env
